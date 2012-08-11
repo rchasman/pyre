@@ -95,6 +95,13 @@ body {
 .course-list li.selected a {
 	font-weight: bold;
 }
+.course-list li:hover a {
+	background-color: #e6e6e6;
+}	
+.course-list li a::first-line {
+	font-weight: bold;
+	font-size: 110%;
+}
 
 .list.selected {
 	font-weight: bold;
