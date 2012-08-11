@@ -76,6 +76,15 @@ var focus_field_by_id = function (id) {
 };
 
 ////////// Lists //////////
+/*
+Template.base.is_logged_in = function() {
+	return true;
+}
+*/
+
+Template.base.is_logged_in = function() {
+	return true;
+};
 
 Template.lists.lists = function () {
   return Lists.find({}, {sort: {name: 1}});

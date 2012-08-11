@@ -15,17 +15,53 @@
 
 <div class="container">
 	<div class="row-fluid">
-		<div id="side-pane" class="span3">
-		{{> lists}}
-		</div>
-
-		<div id="main-pane" class="span9">
-		{{> todos}}
-		</div>
+		{{> base}}
 	</div>
 </div>
 
 </body>
+
+<template name="base">
+	{{#if is_logged_in}}
+		<div id="side-pane" class="span3">
+		{{> lists}}
+		</div>
+
+		<div id="side-pane" class="span3">
+		{{> courses}}
+		</div>
+
+		<div id="main-pane" class="span6">
+		{{> todos}}
+		</div>
+	{{else}}
+		login motherfucker
+	{{/if}}
+</template>
+
+<template name="courses">
+  <h3>Your fucking courses</h3>
+  <div id="courses">
+    {{#each courses}}
+      <div class="list {{selected}}">
+        {{#if editing}}
+          <div class="edit">
+            <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
+          </div>
+        {{else}}
+          <div class="display">
+            <a class="list-name {{name_class}}" href="/{{_id}}">
+              {{name}}
+            </a>
+          </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+  <div id="createList">
+    <input type="text" id="new-list" placeholder="New list" />
+  </div>
+</template>
 
 <template name="lists">
   <h3>Your courses</h3>
