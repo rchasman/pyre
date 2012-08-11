@@ -99,6 +99,29 @@ hr{
     width: 80px;
 }
 
+
+.course-list {
+	margin: 0;
+	list-style: none;
+}
+
+.course-list li a {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+.course-list li.selected a {
+	font-weight: bold;
+}
+.course-list li:hover a {
+	background-color: #e6e6e6;
+}	
+.course-list li a::first-line {
+	font-weight: bold;
+	font-size: 110%;
+}
+
 .list.selected {
 	font-weight: bold;
+	background: #9cf;
 }

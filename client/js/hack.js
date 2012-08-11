@@ -24,6 +24,7 @@ Session.set('editing_itemname', null);
 // Subscribe to 'lists' collection on startup.
 // Select a list once data has arrived.
 Meteor.subscribe('lists', function () {
+/*
 	if (Session.get('user_id')) {
 		if (!Session.get('list_id')) {
 			var list = Lists.findOne({}, {sort: {name: 1}});
@@ -31,6 +32,7 @@ Meteor.subscribe('lists', function () {
 				Router.setList(list._id);
 		}
 	}
+*/
 });
 
 Meteor.subscribe('schools', function() {
@@ -112,7 +114,7 @@ var TodosRouter = Backbone.Router.extend({
     Session.set("list_id", list_id);
   },
   main: function (course_id) {
-    Session.set("course_id", course_id);
+    Session.set("course_id", decodeURIComponent(course_id));
   },
   setList: function (list_id) {
     this.navigate('/list/'+list_id, true);

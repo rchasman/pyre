@@ -3,7 +3,8 @@ Template.courses.schools = function() {
 }
 
 Template.courses.selected = function() {
-	return false;
+	console.log(Session.get('course_id'));
+	return Session.equals('course_id', this.name) ? 'selected' : '';
 }
 
 Template.courses.events = {

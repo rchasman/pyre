@@ -42,7 +42,7 @@ Template.tasks.events[ okcancel_events('#new-task') ] =
 	tasks.push({
 		content: 'hello'
 	});
-	course.save();
+	Schools.update();
 	console.log(tasks);
     }
   });
