@@ -114,7 +114,7 @@ var TodosRouter = Backbone.Router.extend({
     Session.set("list_id", list_id);
   },
   main: function (course_id) {
-    Session.set("course_id", course_id);
+    Session.set("course_id", decodeURIComponent(course_id));
   },
   setList: function (list_id) {
     this.navigate('/list/'+list_id, true);
