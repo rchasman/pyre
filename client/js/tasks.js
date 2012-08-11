@@ -12,14 +12,38 @@ Template.tasks.course = function() {
 
 	var courses = [];
 	var schools = Schools.find();
-	console.log(schools);
 	schools.forEach(function(school) {
-		console.log(school);
-		//courses.push(school.courses);
 		_.each(school.courses, function(course) {courses.push(course)});
 	});
-	console.log(courses);
 	return _.find(courses, function(course) {
 		return course.name == course_id;
 	});
 }
+
+Template.tasks.events = {};
+
+Template.tasks.events[ okcancel_events('#new-task') ] =
+  make_okcancel_handler({
+    ok: function (text, evt) {
+	/*
+      var tag = Session.get('tag_filter');
+      Todos.insert({
+        text: text,
+        list_id: Session.get('list_id'),
+        done: false,
+        timestamp: (new Date()).getTime(),
+        tags: tag ? [tag] : []
+      });
+      evt.target.value = '';
+	*/
+	//alert('FUCK YOU');
+	var course = Template.tasks.course();
+	var tasks = Template.tasks.course().tasks;
+	tasks.push({
+		content: 'hello'
+	});
+	course.save();
+	console.log(tasks);
+    }
+  });
+

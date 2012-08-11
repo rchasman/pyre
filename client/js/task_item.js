@@ -1,39 +1,26 @@
-Template.todo_item.tag_objs = function () {
-  var todo_id = this._id;
-  return _.map(this.tags || [], function (tag) {
-    return {todo_id: todo_id, tag: tag};
-  });
-};
-
-Template.todo_item.done_class = function () {
+Template.task_item.done_class = function () {
   return this.done ? 'done' : '';
 };
 
-Template.todo_item.done_checkbox = function () {
+Template.task_item.done_checkbox = function () {
   return this.done ? 'checked="checked"' : '';
 };
 
-Template.todo_item.editing = function () {
+Template.task_item.editing = function () {
   return Session.equals('editing_itemname', this._id);
 };
 
-Template.todo_item.adding_tag = function () {
+Template.task_item.adding_tag = function () {
   return Session.equals('editing_addtag', this._id);
 };
 
-Template.todo_item.events = {
+Template.task_item.events = {
   'click .check': function () {
     Todos.update(this._id, {$set: {done: !this.done}});
   },
 
   'click .destroy': function () {
     Todos.remove(this._id);
-  },
-
-  'click .addtag': function (evt) {
-    Session.set('editing_addtag', this._id);
-    Meteor.flush(); // update DOM before focus
-    focus_field_by_id("edittag-input");
   },
 
   'dblclick .display .todo-text': function (evt) {
@@ -55,7 +42,7 @@ Template.todo_item.events = {
 
 };
 
-Template.todo_item.events[ okcancel_events('#todo-input') ] =
+Template.task_item.events[ okcancel_events('#todo-input') ] =
   make_okcancel_handler({
     ok: function (value) {
       Todos.update(this._id, {$set: {text: value}});
@@ -66,7 +53,7 @@ Template.todo_item.events[ okcancel_events('#todo-input') ] =
     }
   });
 
-Template.todo_item.events[ okcancel_events('#edittag-input') ] =
+Template.task_item.events[ okcancel_events('#edittag-input') ] =
   make_okcancel_handler({
     ok: function (value) {
       Todos.update(this._id, {$addToSet: {tags: value}});

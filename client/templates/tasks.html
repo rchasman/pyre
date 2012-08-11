@@ -1,9 +1,9 @@
 <template name="tasks">
   {{#if any_course_selected}}
   <div id="items-view">
-    {{ course.name }}
+    {{ course.department }} {{ course.number }}: {{ course.name }}
     <div id="new-todo-box">
-      <input type="text" id="new-todo" placeholder="New item" />
+      <input type="text" id="new-task" placeholder="New item" />
     </div>
     <ul id="item-list">
       {{#each course.tasks}}
