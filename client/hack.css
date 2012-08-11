@@ -1,5 +1,6 @@
 body {
 	padding-top: 60px;
+    line-height: 18px;
 }
 
 #nav{
@@ -23,10 +24,14 @@ body {
     width: 20px;
 }
 
-#login {
+#avatar {
+    padding-top: 4px;
+    height: 32px;
+}
 
-padding-left: 7px;
-padding-right: 7px;
+#login {
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
 #item-list .todo .display, #item-list .todo .edit {
