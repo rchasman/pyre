@@ -39,10 +39,10 @@ Template.tasks.events[ okcancel_events('#new-task') ] =
 	//alert('FUCK YOU');
 	var course = Template.tasks.course();
 	var tasks = Template.tasks.course().tasks;
-	tasks.push({
-		content: 'hello'
-	});
-	Schools.update();
+	var new_task = {
+		content: text
+	}
+	Schools.update({'courses.name': course.name}, {$push: {tasks: new_task}});
 	console.log(tasks);
     }
   });

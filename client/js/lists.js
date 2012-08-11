@@ -49,3 +49,7 @@ Template.lists.name_class = function () {
 Template.lists.editing = function () {
   return Session.equals('editing_listname', this._id);
 };
+
+Template.lists.number = function() {
+	return this.number;
+}

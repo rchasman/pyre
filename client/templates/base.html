@@ -1,11 +1,11 @@
 <template name="base">
 	{{#if is_logged_in}}
 		<div id="side-pane2" class="span3">
-		{{> courses}}
+		{{> lists}}
 		</div>
 
 		<div id="main-pane2" class="span9">
-		{{> tasks}}
+		{{> todos}}
 		</div>
 	{{else}}
         {{> signup}}
