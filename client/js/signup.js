@@ -53,11 +53,13 @@ Template.signup.events = {"click #submit":function() {
     }
 
     if (i == 0) {
-        Session.set("user_id", Users.insert({
+        var id = Users.insert({
             first: $("#firstname").val(),
             last: $("#lastname").val(),
             email: $("#email").val(),
-            password: $("#password").val()}));
+            password: $("#password").val()});
+        Session.set("user_id", id);
+        console.log(id);
         $('#signup').modal('hide')
         //$("#").html("<div class='alert alert-success'>Thanks" + first + " " + last + "! <br/> You are well on your way to a more organized life!</div>");
     }

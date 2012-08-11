@@ -1,5 +1,7 @@
 Template.tasks.any_course_selected = function() {
-	return !Session.equals('course_id', null);
+    if (Session.get('user_id') != null){
+        return Session.get('course_id') != null;
+    }
 }
 
 Template.tasks.course = function() {
@@ -7,12 +9,12 @@ Template.tasks.course = function() {
 	if (!course_id) return {};
 	course_id = decodeURIComponent(course_id);
 	console.log(course_id);
-	
+
 	var schools = Schools.find();
 	var courses = [];
-	$.each(schools.docs, function(i, school) {
+	$.each(schools, function(i, school) {
 		console.log(school);
-		courses = _.union(school.courses, courses);
+		courses.push(school.courses);
 	});
 	console.log(courses);
 	return _.find(courses, function(course) {

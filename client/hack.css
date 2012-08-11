@@ -2,6 +2,10 @@ body {
 	padding-top: 60px;
 }
 
+#nav{
+    position: fixed;
+}
+
 #item-list .todo {
     display: block;
     height: 50px;
