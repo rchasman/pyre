@@ -6,8 +6,8 @@
       <input type="text" id="new-todo" placeholder="New item" />
     </div>
     <ul id="item-list">
-      {{#each tasks}}
-        {{> todo_item}}
+      {{#each course.tasks}}
+        {{> task_item}}
       {{/each}}
     </ul>
   </div>

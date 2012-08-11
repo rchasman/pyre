@@ -10,11 +10,13 @@ Template.tasks.course = function() {
 	course_id = decodeURIComponent(course_id);
 	console.log(course_id);
 
-	var schools = Schools.find();
 	var courses = [];
-	$.each(schools, function(i, school) {
+	var schools = Schools.find();
+	console.log(schools);
+	schools.forEach(function(school) {
 		console.log(school);
-		courses.push(school.courses);
+		//courses.push(school.courses);
+		_.each(school.courses, function(course) {courses.push(course)});
 	});
 	console.log(courses);
 	return _.find(courses, function(course) {
