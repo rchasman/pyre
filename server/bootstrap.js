@@ -66,29 +66,33 @@ Meteor.startup(function () {
       school: "University of Arizona"
       }];
 
+    var user_ids = [];
+    for(var i = 0; i < users.length; i++)
+        user_ids.push(Users.insert(users[i]));
+
     var data = [
       {name: "University of Arizona",
        courses: [
          {name: "Discrete Structures",
           department: "CSC",
           number: "245",
-          subscribers: ["Storme","Roey","Chris"],
+          subscribers: [user_ids[0],user_ids[1],user_ids[2]],
           tasks: [
             {content: "Read through the syllabus pdf.",
-            completed_by: ["Storme"],
-            muted_by: ["Chris"],
+            completed_by: [user_ids[1]],
+            muted_by: [user_ids[2]],
             timestamp: new Date().getTime(),
             comments: [{}],
             },
             {content: "Study for the midterm.",
-            completed_by: ["Storme", "Chris"],
+            completed_by: [user_ids[1], user_ids[2]],
             muted_by: [],
             timestamp: new Date().getTime()+1,
             comments: [{}],
             },
             {content: "Study for the final exam.",
             completed_by: [],
-            muted_by: ["Storme", "Chris", "Roey"],
+            muted_by: [user_ids[1], user_ids[2], user_ids[0]],
             timestamp: new Date().getTime()+2,
             comments: [{}],
             }]
@@ -96,31 +100,28 @@ Meteor.startup(function () {
          {name: "Web Programming",
           department: "CSC",
           number: "337",
-          subscribers: ["Storme","Roey","Chris"],
+          subscribers: [user_ids[1],user_ids[0],user_ids[2]],
           tasks: [
             {content: "Read through the Syllabus pdf.",
-            completed_by: ["Roey"],
-            muted_by: ["Storme", "Chris"],
+            completed_by: [user_ids[0]],
+            muted_by: [user_ids[1], user_ids[2]],
             timestamp: new Date().getTime(),
             comments: [{}],
             },
             {content: "Study for the midterm.",
-            completed_by: ["Roey", "Chris"],
-            muted_by: ["Chris"],
+            completed_by: [user_ids[0], user_ids[2]],
+            muted_by: [user_ids[2]],
             timestamp: new Date().getTime()+1,
             comments: [{}],
             },
             {content: "Study for the final exam.",
-            completed_by: ["Chris"],
-            muted_by: ["Storme", "Roey"],
+            completed_by: [user_ids[2]],
+            muted_by: [user_ids[1], user_ids[0]],
             timestamp: new Date().getTime()+2,
             comments: [{}],
             }]
          }]
       }];
-
-    for(var i = 0; i < users.length; i++)
-        Users.insert(users[i]);
 
     for(var i = 0; i < data.length; i++)
         Schools.insert(data[i]);
