@@ -1,3 +1,5 @@
 *.swp
 *.un~
-
+pyre.tar.gz
+bundle
+hackrc
