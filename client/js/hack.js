@@ -1,11 +1,15 @@
-// Client-side JavaScript, bundled and sent to client.
+// Client-side JavaScript, bundled and sent to client
 
 // Define Minimongo collections to match server/publish.js.
 Lists = new Meteor.Collection("lists");
 Todos = new Meteor.Collection("todos");
 
+Schools = new Meteor.Collection('schools');
+Users = new Meteor.Collection('users');
+
 // ID of currently selected list
 Session.set('list_id', null);
+Session.set('course_id', null);
 
 // When adding tag to a todo, ID of the todo
 Session.set('editing_addtag', null);
@@ -27,12 +31,28 @@ Meteor.subscribe('lists', function () {
   }
 });
 
+Meteor.subscribe('schools', function() {
+	if (!Session.get('course_id')) {
+		var school = Schools.findOne({}, {sort: {name: 1}});
+		if (school)
+			Router.setCourse(encodeURIComponent(school.courses[0].name));
+	}
+});
+
 // Always be subscribed to the todos for the selected list.
 Meteor.autosubscribe(function () {
   var list_id = Session.get('list_id');
   if (list_id)
     Meteor.subscribe('todos', list_id);
 });
+
+/*
+Meteor.autosubscribe(function () {
+	var course_id = Session.get('course_id');
+	if (course_id)
+		Meteor.subscribe('todos', course_id);
+});
+*/
 
 
 ////////// Helpers for in-place editing //////////
@@ -80,15 +100,22 @@ var focus_field_by_id = function (id) {
 
 var TodosRouter = Backbone.Router.extend({
   routes: {
-    ":list_id": "main"
+    "": "main",
+    "list/:list_id": "main_list",
+    "course/:course_id": "main"
   },
-  main: function (list_id) {
+  main_list: function (list_id) {
     Session.set("list_id", list_id);
-    Session.set("tag_filter", null);
+  },
+  main: function (course_id) {
+    Session.set("course_id", course_id);
   },
   setList: function (list_id) {
-    this.navigate(list_id, true);
-  }
+    this.navigate('/list/'+list_id, true);
+  },
+	setCourse: function (course_id) {
+		this.navigate('/course/'+course_id, true);	
+	}
 });
 
 Router = new TodosRouter;
