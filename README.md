@@ -17,6 +17,8 @@ our technology stack.
 * [Meteor](http://meteor.com) Stack
     * CSS - Framework - [Bootstrap](http://twitter.github.com/bootstrap)
     * JS Library - [jquery](http://jquery.com)
+    * JS Library - [backbone](http://backbonejs.org)
+    * JS Library - [underscore](http://underscorejs.org)
     * JS Preproccesor - [Coffeescript](http://coffeescript.org)
     * JS Templating - [Handlebars](http://handlebarsjs.com)
     * CSS Preproccesor - [Stylus](http://learnboost.github.com/stylus/)
