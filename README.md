@@ -14,15 +14,15 @@ Crowd-sourced task lists with social integration.
 So we are going to learn a ton of new things! This is what we plan to use for
 our technology stack.
 
-* [Meteor](meteor.com) Stack
-    * CSS - Framework - [Bootstrap](twitter.github.com/bootstrap)
-    * JS Library - [jquery](jquery.com)
-    * JS Preproccesor - [Coffeescript](coffeescript.org)
-    * JS Templating - [Handlebars](handlebarsjs.com)
-    * CSS Preproccesor - [Stylus](learnboost.github.com/stylus/)
-* Avatar Grabber - [Avatars.io](avatars.io)
-* Comment System - [Disqus](disqus.com)
-* Image Upload - [Filepicker.io](filepicker.io)
+* [Meteor](http://meteor.com) Stack
+    * CSS - Framework - [Bootstrap](http://twitter.github.com/bootstrap)
+    * JS Library - [jquery](http://jquery.com)
+    * JS Preproccesor - [Coffeescript](http://coffeescript.org)
+    * JS Templating - [Handlebars](http://handlebarsjs.com)
+    * CSS Preproccesor - [Stylus](http://learnboost.github.com/stylus/)
+* Avatar Grabber - [Avatars.io](http://avatars.io)
+* Comment System - [Disqus](http://disqus.com)
+* Image Upload - [Filepicker.io](http://filepicker.io)
 
 # Contributors
 
