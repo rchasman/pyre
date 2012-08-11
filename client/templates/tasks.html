@@ -1,7 +1,7 @@
 <template name="tasks">
   {{#if any_course_selected}}
   <div id="items-view">
-    {{ course.department }} {{ course.number }}: {{ course.name }}
+    <h1>{{ course.department }} {{ course.number }}: {{ course.name }}</h1>
     <div id="new-todo-box">
       <input type="text" id="new-task" placeholder="New item" />
     </div>

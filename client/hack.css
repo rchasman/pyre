@@ -76,6 +76,22 @@ padding-right: 7px;
     width: 80px;
 }
 
+
+.course-list {
+	margin: 0;
+	list-style: none;
+}
+
+.course-list li a {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+.course-list li.selected a {
+	font-weight: bold;
+}
+
 .list.selected {
 	font-weight: bold;
+	background: #9cf;
 }
