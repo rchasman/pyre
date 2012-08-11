@@ -1,23 +1,23 @@
 <template name="courses">
-  <h3>Your fucking courses</h3>
-  <div id="courses">
-    {{#each courses}}
-      <div class="list {{selected}}">
-        {{#if editing}}
-          <div class="edit">
-            <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
-          </div>
-        {{else}}
-          <div class="display">
-            <a class="list-name {{name_class}}" href="/{{_id}}">
-              {{name}}
-            </a>
-          </div>
-        {{/if}}
-      </div>
-    {{/each}}
-  </div>
-  <div id="createList">
-    <input type="text" id="new-list" placeholder="New list" />
-  </div>
+	<h3>Your fucking courses</h3>
+	<div id="courses">
+		{{#each courses}}
+			<div class="list {{selected}}">
+				{{#if editing}}
+					<div class="edit">
+						<input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
+					</div>
+				{{else}}
+					<div class="display">
+						<a class="list-name {{name_class}}" href="/{{_id}}">
+							{{name}}
+						</a>
+					</div>
+				{{/if}}
+			</div>
+		{{/each}}
+	</div>
+	<div id="createList">
+		<input type="text" id="new-list" placeholder="New list" />
+	</div>
 </template>
