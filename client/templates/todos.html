@@ -1,9 +1,10 @@
 <template name="todos">
     {{#if any_list_selected}}
-        <h1>{{list.name}}</h1>
+    <h1>{{list.department}}{{list.number}}: {{list.name}}</h1>
         <div id="items-view">
             <div id="new-todo-box">
-            <input type="text" id="new-todo" placeholder="New item" />
+            <br>
+            <input type="text" id="new-todo" placeholder="Create a New Task" />
         </div>
         <ul id="item-list">
             {{#each todos}}

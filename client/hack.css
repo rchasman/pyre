@@ -7,6 +7,23 @@ body {
     position: fixed;
 }
 
+.list{
+    border-left: 4px solid #0098AA;
+    width: 200px;
+}
+
+.list:hover {
+    border-left: 4px solid #BBB;
+}
+
+#new-todo{
+    padding-left: 40px;
+}
+
+#createList{
+    width: auto;
+}
+
 #item-list .todo {
     display: block;
     height: 50px;
