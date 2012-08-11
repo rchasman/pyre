@@ -1,0 +1,15 @@
+<template name="tasks">
+  {{#if any_course_selected}}
+  <div id="items-view">
+    {{ course.name }}
+    <div id="new-todo-box">
+      <input type="text" id="new-todo" placeholder="New item" />
+    </div>
+    <ul id="item-list">
+      {{#each tasks}}
+        {{> todo_item}}
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+</template>
