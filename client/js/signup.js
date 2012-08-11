@@ -1,7 +1,5 @@
 Template.signup.events = {"click #submit":function() {
 
-    first = $("#firstname").val();
-    last = $("#lastname").val();
     username = $("#username").val();
     email = $("#email").val();
     password = $("#password").val();
@@ -15,20 +13,6 @@ Template.signup.events = {"click #submit":function() {
     } else {
         $("#password").closest("fieldset").removeClass("control-group error");
         $("#confirm").closest("fieldset").removeClass("control-group error");
-        i = 0;
-    }
-    if (first.length < 3) {
-        $("#firstname").closest("fieldset").addClass("control-group error");
-        i++;
-    } else {
-        $("#firstname").closest("fieldset").removeClass("control-group error");
-        i = 0;
-    }
-    if (last.length < 3) {
-        $("#lastname").closest("fieldset").addClass("control-group error");
-        i++;
-    } else {
-        $("#lastname").closest("fieldset").removeClass("control-group error");
         i = 0;
     }
     if (username.length < 3) {
@@ -62,8 +46,6 @@ Template.signup.events = {"click #submit":function() {
 
     if (i == 0) {
         var id = Users.insert({
-            first: first,
-            last: last,
             username: username,
             email: email,
             password: password});
