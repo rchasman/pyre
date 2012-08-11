@@ -8,6 +8,18 @@ Template.todos.list = function() {
 	return Lists.findOne({'_id': Session.get('list_id')});
 }
 
+/*
+Templates.todos.list_users = function() {
+	var list =  Lists.findOne({'_id': Session.get('list_id')});
+	var users_ids = list.users;
+
+	var users = Users.find({'_id' : {$in: user_ids}});
+	console.log(users);
+	var r = "";
+	return r;
+}
+*/
+
 Template.todos.events = {};
 
 Template.todos.events[ okcancel_events('#new-todo') ] =
