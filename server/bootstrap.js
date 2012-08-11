@@ -1,4 +1,4 @@
-// if the database is empty on server start, create some sample data.
+/* if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
   if (Lists.find().count() === 0) {
     var data = [
@@ -50,5 +50,79 @@ Meteor.startup(function () {
         timestamp += 1; // ensure unique timestamp.
       }
     }
+  }
+});*/
+
+Meteor.startup(function () {
+  if (Schools.find().count() === 0) {
+    var users = [
+      {name: "Roey",
+      school: "University of Arizona"
+      },
+      {name: "Storme",
+      school: "University of Arizona"
+      },
+      {name: "Chris",
+      school: "University of Arizona"
+      }];
+
+    var data = [
+      {name: "University of Arizona",
+       courses: [
+         {name: "Discrete Structures",
+          department: "CSC",
+          number: "245",
+          subscribers: ["Storme","Roey","Chris"],
+          tasks: [
+            {content: "Read through the syllabus pdf.",
+            completed_by: ["Storme"],
+            muted_by: ["Chris"],
+            timestamp: new Date().getTime(),
+            comments: [{}],
+            },
+            {content: "Study for the midterm.",
+            completed_by: ["Storme", "Chris"],
+            muted_by: [],
+            timestamp: new Date().getTime()+1,
+            comments: [{}],
+            },
+            {content: "Study for the final exam.",
+            completed_by: [],
+            muted_by: ["Storme", "Chris", "Roey"],
+            timestamp: new Date().getTime()+2,
+            comments: [{}],
+            }]
+         },
+         {name: "Web Programming",
+          department: "CSC",
+          number: "337",
+          subscribers: ["Storme","Roey","Chris"],
+          tasks: [
+            {content: "Read through the Syllabus pdf.",
+            completed_by: ["Roey"],
+            muted_by: ["Storme", "Chris"],
+            timestamp: new Date().getTime(),
+            comments: [{}],
+            },
+            {content: "Study for the midterm.",
+            completed_by: ["Roey", "Chris"],
+            muted_by: ["Chris"],
+            timestamp: new Date().getTime()+1,
+            comments: [{}],
+            },
+            {content: "Study for the final exam.",
+            completed_by: ["Chris"],
+            muted_by: ["Storme", "Roey"],
+            timestamp: new Date().getTime()+2,
+            comments: [{}],
+            }]
+         }]
+      }];
+
+    for(var i = 0; i < users.length; i++)
+        Users.insert(users[i]);
+
+    for(var i = 0; i < data.length; i++)
+        Schools.insert(data[i]);
   }
 });
