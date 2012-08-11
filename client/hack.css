@@ -163,3 +163,7 @@ hr{
 .list-name span.name {
 	font-size: 110%;
 }
+
+h1 {
+	margin-bottom: 1em;
+}
