@@ -123,5 +123,21 @@ hr{
 
 .list.selected {
 	font-weight: bold;
-	background: #9cf;
+	background: #e6e6e6;
+}
+
+.list-name {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+.list-name:hover {
+	text-decoration: none;
+}	
+.list-name span{
+	display: block;
+}
+
+.list-name span.name {
+	font-size: 110%;
 }
