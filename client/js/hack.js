@@ -24,21 +24,23 @@ Session.set('editing_itemname', null);
 // Subscribe to 'lists' collection on startup.
 // Select a list once data has arrived.
 Meteor.subscribe('lists', function () {
-  if (!Session.get('list_id')) {
-    var list = Lists.findOne({}, {sort: {name: 1}});
-    if (list)
-      Router.setList(list._id);
-  }
+	if (Session.get('user_id')) {
+		if (!Session.get('list_id')) {
+			var list = Lists.findOne({}, {sort: {name: 1}});
+			if (list)
+				Router.setList(list._id);
+		}
+	}
 });
 
 Meteor.subscribe('schools', function() {
 	if (Session.get('user_id')) {
-        if (!Session.get('course_id')) {
-            var school = Schools.findOne({}, {sort: {name: 1}});
-            if (school)
-                Router.setCourse(encodeURIComponent(school.courses[0].name));
-        }
-    }
+		if (!Session.get('course_id')) {
+			var school = Schools.findOne({}, {sort: {name: 1}});
+			if (school)
+				Router.setCourse(encodeURIComponent(school.courses[0].name));
+		}
+	}
 });
 
 // Always be subscribed to the todos for the selected list.
@@ -103,8 +105,8 @@ var focus_field_by_id = function (id) {
 var TodosRouter = Backbone.Router.extend({
   routes: {
     "": "main",
-    "/:list_id": "main_list",
-    "/:course_id": "main"
+	"list/:list_id": "main_list",
+	"course/:course_id": "main"
   },
   main_list: function (list_id) {
     Session.set("list_id", list_id);
