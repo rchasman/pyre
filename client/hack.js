@@ -7,9 +7,6 @@ Todos = new Meteor.Collection("todos");
 // ID of currently selected list
 Session.set('list_id', null);
 
-// Name of currently selected tag for filtering
-Session.set('tag_filter', null);
-
 // When adding tag to a todo, ID of the todo
 Session.set('editing_addtag', null);
 
@@ -138,6 +135,11 @@ Template.todos.any_list_selected = function () {
   return !Session.equals('list_id', null);
 };
 
+Template.todos.course = function() {
+	//return "CSC227";
+	//return Lists.find('id': Session.get('list_id'));
+};
+
 Template.todos.events = {};
 
 Template.todos.events[ okcancel_events('#new-todo') ] =
@@ -250,46 +252,6 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
     }
   });
 
-////////// Tag Filter //////////
-
-// Pick out the unique tags from all todos in current list.
-Template.tag_filter.tags = function () {
-  var tag_infos = [];
-  var total_count = 0;
-
-  Todos.find({list_id: Session.get('list_id')}).forEach(function (todo) {
-    _.each(todo.tags, function (tag) {
-      var tag_info = _.find(tag_infos, function (x) { return x.tag === tag; });
-      if (! tag_info)
-        tag_infos.push({tag: tag, count: 1});
-      else
-        tag_info.count++;
-    });
-    total_count++;
-  });
-
-  tag_infos = _.sortBy(tag_infos, function (x) { return x.tag; });
-  tag_infos.unshift({tag: null, count: total_count});
-
-  return tag_infos;
-};
-
-Template.tag_filter.tag_text = function () {
-  return this.tag || "All items";
-};
-
-Template.tag_filter.selected = function () {
-  return Session.equals('tag_filter', this.tag) ? 'selected' : '';
-};
-
-Template.tag_filter.events = {
-  'mousedown .tag': function () {
-    if (Session.equals('tag_filter', this.tag))
-      Session.set('tag_filter', null);
-    else
-      Session.set('tag_filter', this.tag);
-  }
-};
 
 ////////// Tracking selected list in URL //////////
 

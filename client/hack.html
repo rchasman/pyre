@@ -3,21 +3,32 @@
 </head>
 
 <body>
-  <div id="top-tag-filter">
-    {{> tag_filter}}
-  </div>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#">
+				Pyre
+			</a>
+		</div>
+	</div>
+</div>
 
-  <div id="main-pane">
-    {{> todos}}
-  </div>
+<div class="container">
+	<div class="row-fluid">
+		<div id="side-pane" class="span3">
+		{{> lists}}
+		</div>
 
-  <div id="side-pane">
-    {{> lists}}
-  </div>
+		<div id="main-pane" class="span9">
+		{{> todos}}
+		</div>
+	</div>
+</div>
+
 </body>
 
 <template name="lists">
-  <h3>Todo Lists</h3>
+  <h3>Your courses</h3>
   <div id="lists">
     {{#each lists}}
       <div class="list {{selected}}">
@@ -42,6 +53,7 @@
 
 <template name="todos">
   {{#if any_list_selected}}
+    {{ course }}
   <div id="items-view">
     <div id="new-todo-box">
       <input type="text" id="new-todo" placeholder="New item" />
@@ -68,35 +80,5 @@
         <div class="todo-text">{{text}}</div>
       </div>
     {{/if}}
-    <div class="item-tags">
-      {{#each tag_objs}}
-        <div class="tag removable_tag">
-          <div class="name">{{tag}}</div>
-          <div class="remove"></div>
-        </div>
-      {{/each}}
-      {{#if adding_tag}}
-        <div class="tag edittag">
-          <input type="text" id="edittag-input" value="" />
-        </div>
-      {{else}}
-        <div class="tag addtag">
-          +tag
-        </div>
-      {{/if}}
-    </div>
   </li>
 </template>
-
-<template name="tag_filter">
-  <div id="tag-filter" class="tag-list">
-    <div class="label">Show:</div>
-    {{#each tags}}
-      <div class="tag {{selected}}">
-        {{tag_text}} <span class="count">({{count}})</span>
-      </div>
-    {{/each}}
-  </div>
-</template>
-
-
