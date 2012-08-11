@@ -1,0 +1,21 @@
+<template name="logged_in">
+    {{#if is_logged_in}}
+    <li class="nav"><a id='logout' href='#'>Log out</a></li>
+    {{else}}
+    <li class='dropdown'>
+        <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+        Account
+        <b class='caret'></b>
+        </a>
+        <ul class='dropdown-menu'>
+            <br>
+            <form id='login'>
+                <p>Login</p>
+                <input id='login-user' type='text' placeholder='username'></input>
+                <input id='login-pass' type='password' placeholder='password'></input>
+                <input id='login-submit' class='btn pull-right' type='button' value='Go!'></input>
+            </form>
+        </ul>
+    </li>
+    {{/if}}
+</template>

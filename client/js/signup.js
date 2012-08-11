@@ -2,6 +2,7 @@ Template.signup.events = {"click #submit":function() {
 
     first = $("#firstname").val();
     last = $("#lastname").val();
+    username = $("#username").val();
     email = $("#email").val();
     password = $("#password").val();
     confirm = $("#confirm").val();
@@ -30,6 +31,13 @@ Template.signup.events = {"click #submit":function() {
         $("#lastname").closest("fieldset").removeClass("control-group error");
         i = 0;
     }
+    if (username.length < 3) {
+        $("#username").closest("fieldset").addClass("control-group error");
+        i++;
+    } else {
+        $("#username").closest("fieldset").removeClass("control-group error");
+        i = 0;
+    }
     if (email.length < 5) {
         $("#email").closest("fieldset").addClass("control-group error");
         i++;
@@ -54,13 +62,14 @@ Template.signup.events = {"click #submit":function() {
 
     if (i == 0) {
         var id = Users.insert({
-            first: $("#firstname").val(),
-            last: $("#lastname").val(),
-            email: $("#email").val(),
-            password: $("#password").val()});
+            first: first,
+            last: last,
+            username: username,
+            email: email,
+            password: password});
         Session.set("user_id", id);
         console.log(id);
-        $('#signup').modal('hide')
+        $('#signup').modal('hide');
         //$("#").html("<div class='alert alert-success'>Thanks" + first + " " + last + "! <br/> You are well on your way to a more organized life!</div>");
     }
 }};
