@@ -5,22 +5,22 @@ Meteor.startup(function () {
       {name: "Discrete Structures",
        number: "CSC 245",
        contents: [
-	 ["Read the syllabus"],
-	 ["Complete Program #1"],
+	 ["Read the syllabus", new Date('8/11/12')],
+	 ["Complete Program #1", new Date('8/13/12')],
        ]
       },
       {name: "Linear Algebra",
        number: "MATH 215",
        contents: [
-	 ["Read the syllabus"],
-	 ["Complete Assignment #1"],
+	 ["Read the syllabus", new Date('8/12/12')],
+	 ["Complete Assignment #1", new Date('8/14/12')],
          ]
       },
       {name: "Literature",
        number: "ENGL 101",
        contents: [
-	 ["Read the syllabus"],
-	 ["Read a book"]
+	 ["Read the syllabus", new Date('8/15/12')],
+	 ["Read a book", new Date('8/20/12')]
        ]
       }
     ];
@@ -33,7 +33,8 @@ Meteor.startup(function () {
         Todos.insert({list_id: list_id,
                       text: info[0],
                       timestamp: timestamp,
-                      tags: info.slice(1)});
+                      tags: info.slice(1),
+			due: info[1]});
         timestamp += 1; // ensure unique timestamp.
       }
     }

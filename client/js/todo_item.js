@@ -76,3 +76,7 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
       Session.set('editing_addtag', null);
     }
   });
+
+Template.todo_item.due = function() {
+	return this.due ? this.due.toString('yyyy-MM-dd') : null;
+}

@@ -72,6 +72,11 @@ hr{
     color: #999;
 }
 
+#item-list .todo-due {
+	float: left;
+	margin-left: 1.5em;
+}
+
 #item-list .todo:hover .destroy {
     background: url('/destroy.png') no-repeat 0 0;
 }
