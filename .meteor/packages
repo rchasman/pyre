@@ -4,3 +4,8 @@
 # but you can also edit it by hand.
 
 autopublish
+bootstrap
+jquery
+coffeescript
+stylus
+handlebars
