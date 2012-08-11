@@ -4,25 +4,25 @@
 
 <body>
 <div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-	<a class="brand" href="#">
-		Pyre
-	</a>
-    </div>
-  </div>
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#">
+				Pyre
+			</a>
+		</div>
+	</div>
 </div>
 
 <div class="container">
-<div class="row-fluid">
-  <div id="side-pane" class="span3">
-    {{> lists}}
-  </div>
+	<div class="row-fluid">
+		<div id="side-pane" class="span3">
+		{{> lists}}
+		</div>
 
-  <div id="main-pane" class="span9">
-    {{> todos}}
-  </div>
-</div>
+		<div id="main-pane" class="span9">
+		{{> todos}}
+		</div>
+	</div>
 </div>
 
 </body>
@@ -53,6 +53,7 @@
 
 <template name="todos">
   {{#if any_list_selected}}
+    {{ course }}
   <div id="items-view">
     <div id="new-todo-box">
       <input type="text" id="new-todo" placeholder="New item" />

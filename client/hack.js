@@ -135,6 +135,11 @@ Template.todos.any_list_selected = function () {
   return !Session.equals('list_id', null);
 };
 
+Template.todos.course = function() {
+	//return "CSC227";
+	//return Lists.find('id': Session.get('list_id'));
+};
+
 Template.todos.events = {};
 
 Template.todos.events[ okcancel_events('#new-todo') ] =

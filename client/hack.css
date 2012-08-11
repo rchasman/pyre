@@ -66,3 +66,7 @@ body {
     width: 80px;
 }
 
+
+.list.selected {
+	font-weight: bold;
+}
