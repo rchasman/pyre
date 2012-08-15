@@ -1,14 +1,14 @@
-<template name="todos">
+<template name="tasks">
     {{#if any_list_selected}}
     <h1>{{list.department}}{{list.number}}: {{list.name}}</h1>
         <div id="items-view">
-            <div id="new-todo-box">
+            <div id="new-task-box">
             <br>
-            <input type="text" id="new-todo" placeholder="Create a New Task" />
+            <input type="text" id="new-task" placeholder="Create a New Task" />
         </div>
         <ul id="item-list">
-            {{#each todos}}
-                {{> todo_item}}
+            {{#each tasks}}
+                {{> task_item}}
             {{/each}}
         </ul>
         </div>

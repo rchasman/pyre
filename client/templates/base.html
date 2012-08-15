@@ -1,12 +1,12 @@
 <template name="base">
 	{{#if is_logged_in}}
-            <div id="side-pane2" class="span3">
+        <div id="side-pane" class="span3">
             {{> lists}}
             </div>
-            <div id="main-pane2" class="span6 offset1">
-            {{> todos}}
+            <div id="main-pane" class="span6 offset1">
+            {{> tasks}}
 		</div>
 	{{else}}
-        {{> signup}}
+        {{> splash}}
 	{{/if}}
 </template>

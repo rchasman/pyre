@@ -1,4 +1,4 @@
-Template.signup.events = {"click #submit":function() {
+Template.signup_modal.events = {"click #submit":function() {
 
     username = $("#username").val();
     email = $("#email").val();
@@ -22,21 +22,21 @@ Template.signup.events = {"click #submit":function() {
         $("#username").closest("fieldset").removeClass("control-group error");
         i = 0;
     }
-    if (email.length < 5) {
+    /*if (email.length < 5) {
         $("#email").closest("fieldset").addClass("control-group error");
         i++;
     } else {
         $("#email").closest("fieldset").removeClass("control-group error");
         i = 0;
-    }
-    if (password.length < 7) {
+    }*/
+    if (password.length < 3) {
         $("#password").closest("fieldset").addClass("control-group error");
         i++;
     } else {
         $("#password").closest("fieldset").removeClass("control-group error");
         i = 0;
     }
-    if (confirm.length < 7) {
+    if (confirm.length < 3) {
         $("#confirm").closest("fieldset").addClass("control-group error");
         i++;
     } else {

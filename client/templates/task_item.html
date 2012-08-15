@@ -1,15 +1,15 @@
-<template name="todo_item">
-	<li class="todo {{done_class}}">
+<template name="task_item">
+	<li class="task {{done_class}}">
 		{{#if editing}}
 			<div class="edit">
-				<input id="todo-input" type="text" value="{{text}}" />
+				<input id="task-input" type="text" value="{{text}}" />
 			</div>
 		{{else}}
 			<div class="destroy"></div>
 			<div class="display">
 				<input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
-				<div class="todo-text">{{text}}</div>
-				<div class="todo-due">Due: {{due}}</div>
+				<div class="task-text">{{text}}</div>
+				<div class="task-due">Due: {{due}}</div>
 			</div>
 		{{/if}}
 	</li>

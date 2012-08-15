@@ -11,9 +11,6 @@ Users = new Meteor.Collection('users');
 Session.set('list_id', null);
 Session.set('course_id', null);
 
-// When adding tag to a todo, ID of the todo
-Session.set('editing_addtag', null);
-
 // When editing a list name, ID of the list
 Session.set('editing_listname', null);
 
@@ -24,17 +21,14 @@ Session.set('editing_itemname', null);
 // Subscribe to 'lists' collection on startup.
 // Select a list once data has arrived.
 Meteor.subscribe('lists', function () {
-	if (Session.get('user_id')) {
-		if (!Session.get('list_id')) {
-			var list = Lists.findOne({}, {sort: {name: 1}});
-			if (list)
-				Router.setList(list._id);
-		}
-	}
+    if (!Session.get('list_id')) {
+        var list = Lists.findOne({}, {sort: {name: 1}});
+        if (list)
+            Router.setList(list._id);
+    }
 });
 
-Meteor.subscribe('schools', function() {
-/*
+/*Meteor.subscribe('schools', function() {
 	if (Session.get('user_id')) {
 		if (!Session.get('course_id')) {
 			var school = Schools.findOne({}, {sort: {name: 1}});
@@ -42,24 +36,21 @@ Meteor.subscribe('schools', function() {
 				Router.setCourse(encodeURIComponent(school.courses[0].name));
 		}
 	}
-*/
-});
+});*/
 
 // Always be subscribed to the todos for the selected list.
 Meteor.autosubscribe(function () {
-  var list_id = Session.get('list_id');
-  if (list_id)
-    Meteor.subscribe('todos', list_id);
+    var list_id = Session.get('list_id');
+    if (list_id)
+        Meteor.subscribe('todos', list_id);
 });
 
-/*
+
 Meteor.autosubscribe(function () {
 	var course_id = Session.get('course_id');
 	if (course_id)
 		Meteor.subscribe('todos', course_id);
 });
-*/
-
 
 ////////// Helpers for in-place editing //////////
 
@@ -119,9 +110,9 @@ var TodosRouter = Backbone.Router.extend({
   setList: function (list_id) {
     this.navigate('/list/'+list_id, true);
   },
-	setCourse: function (course_id) {
-		this.navigate('/course/'+course_id, true);	
-	}
+  setCourse: function (course_id) {
+	this.navigate('/course/'+course_id, true);
+  }
 });
 
 Router = new TodosRouter;

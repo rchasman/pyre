@@ -1,0 +1,28 @@
+<template name="splash">
+    <div class="hero-unit">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>Welcome to Pyre!</h1>
+                <br/><br/>
+                <p>Pyre is a student-sourced, reactive, and asynchronous to-do list to life hack
+                your courses. It couldn't be quicker to use.
+                </p>
+                <br/><br/>
+                <ol>
+                    <li>Find your school. Or become a pioneer and add it.</li>
+                    <li>Find your courses. Can't find one? Create it!</li>
+                    <li>Start completing tasks, or create your own.</li>
+                </ol>
+                <br/><br/>
+                <a class="btn btn-large btn-primary" data-toggle="modal" href="#signup">
+                    Sign Up Now
+                </a>
+                {{> signup_modal}}
+                </br></br>
+            </div>
+            <div class="span6">
+                <img src="/pyre.jpg"></img>
+            </div>
+        </div>
+    </div>
+</template>
