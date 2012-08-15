@@ -16,7 +16,7 @@ body {
     border-left: 4px solid #BBB;
 }
 
-#new-todo{
+#new-task{
     padding-left: 40px;
 }
 
@@ -24,7 +24,7 @@ body {
     width: auto;
 }
 
-#item-list .todo {
+#item-list .task {
     display: block;
     height: 50px;
     position: relative;
@@ -32,7 +32,7 @@ body {
     /*border-top: 1px solid #ccc;*/
 }
 
-#item-list .todo .destroy {
+#item-list .task .destroy {
     cursor: pointer;
     position: absolute;
     left: 5px;
@@ -69,7 +69,7 @@ hr{
     padding-right: 7px;
 }
 
-#item-list .todo .display, #item-list .todo .edit {
+#item-list .task .display, #item-list .task .edit {
     margin-left: 30px;
     height: 100%;
     width: auto;
@@ -78,49 +78,48 @@ hr{
     line-height: 1;
 }
 
-#todo-input {
+#task-input {
     width: 300px;
     position: relative;
     top: -3px;
 }
 
-#item-list .done .todo-text {
+#item-list .done .task-text {
     text-decoration: line-through;
     color: #999;
 }
 
-#item-list .todo-due {
+#item-list .task-due {
 	float: left;
 	margin-left: 1.5em;
 }
 
-#item-list .todo:hover .destroy {
+#item-list .task:hover .destroy {
     background: url('/destroy.png') no-repeat 0 0;
 }
 
-#item-list .todo .destroy:hover {
+#item-list .task .destroy:hover {
     background-position: 0 -20px;
 }
 
-#item-list .todo .check {
+#item-list .task .check {
     float: left;
     width: 25px;
 }
 
-#item-list .todo .todo-text {
+#item-list .task .task-text {
     float: left;
     margin-left: 10px;
     font-size: 100%;
 }
 
-#item-list .todo .edit input {
+#item-list .task .edit input {
     margin-left: 35px;
 }
 
 #edittag-input {
     width: 80px;
 }
-
 
 .course-list {
 	margin: 0;
@@ -132,12 +131,15 @@ hr{
 	padding: 10px;
 	text-decoration: none;
 }
+
 .course-list li.selected a {
 	font-weight: bold;
 }
+
 .course-list li:hover a {
 	background-color: #e6e6e6;
-}	
+}
+
 .course-list li a::first-line {
 	font-weight: bold;
 	font-size: 110%;
@@ -155,7 +157,8 @@ hr{
 }
 .list-name:hover {
 	text-decoration: none;
-}	
+}
+
 .list-name span{
 	display: block;
 }
